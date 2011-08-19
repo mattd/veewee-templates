@@ -1,0 +1,10 @@
+vagrant basebox templates
+
+export BOX_NAME='lucid'
+export BOX_TEMPLATE='ubuntu-10.04.2-server-amd64'
+
+vagrant basebox define "${BOX_NAME}" "${BOX_TEMPLATE}"
+vagrant basebox build "${BOX_NAME}"
+vagrant basebox export "${BOX_NAME}"
+vagrant box add "${BOX_NAME}" "${BOX_NAME}.box"
+vagrant init "${BOX_NAME}"
