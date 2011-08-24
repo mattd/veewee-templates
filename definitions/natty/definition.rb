@@ -3,8 +3,8 @@ Veewee::Session.declare({
   :disk_size => '8096', :disk_format => 'VDI', :hostiocache => 'off',
   :os_type_id => 'Ubuntu_64',
   :iso_file => "ubuntu-11.04-server-amd64-netboot.iso",
-  :iso_src => "http://archive.ubuntu.com/ubuntu/dists/natty/main/installer-amd64/current/images/netboot/mini.iso",
-  :iso_md5 => "13507ac70863edd2df11cdd6260011ba",
+  :iso_src => "http://releases.ubuntu.com/11.04/ubuntu-11.04-server-amd64.iso",
+  :iso_md5 => "ce1cee108de737d7492e37069eed538e",
   :iso_download_timeout => "1000",
   :boot_wait => "10", :boot_cmd_sequence => [
     '<Esc><Esc><Enter>',
