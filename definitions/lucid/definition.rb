@@ -1,6 +1,6 @@
 Veewee::Session.declare({
   :cpu_count => '1', :memory_size=> '512', 
-  :disk_size => '8096', :disk_format => 'VDI', :hostiocache => 'off',
+  :disk_size => '10240', :disk_format => 'VDI', :hostiocache => 'off',
   :os_type_id => 'Ubuntu_64',
   :iso_file => "ubuntu-10.04.x-server-amd64-netboot.iso",
   :iso_src => "http://archive.ubuntu.com/ubuntu/dists/lucid/main/installer-amd64/current/images/netboot/mini.iso",

@@ -15,7 +15,7 @@ sh /mnt/VBoxLinuxAdditions.run
 umount /mnt
 rm VBoxGuestAdditions_$VBOX_VERSION.iso
 
-curl -L http://opscode/chef/install.sh | bash
+curl -L http://opscode.com/chef/install.sh | bash
 
 exit
 
