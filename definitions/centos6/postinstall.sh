@@ -2,9 +2,7 @@
 
 date > /etc/vagrant_box_build_time
 
-# yum -y erase wireless-tools gtk2 libX11 hicolor-icon-theme avahi freetype bitstream-vera-fonts
 yum -y clean all
-
 yum -y install curl wget
 
 # Installing vagrant keys
@@ -24,11 +22,7 @@ umount /mnt
 rm VBoxGuestAdditions_$VBOX_VERSION.iso
 
 yum -y erase gcc gcc-c++ make kernel-devel bzip2
-
-curl -L http://opscode.com/chef/install.sh | bash
-
 sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
-
 dd if=/dev/zero of=/tmp/clean || rm /tmp/clean
 
 exit

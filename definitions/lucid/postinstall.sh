@@ -18,8 +18,6 @@ sed -i -e 's/%admin ALL=(ALL) ALL/%admin ALL=NOPASSWD:ALL/g' /etc/sudoers
 # Install NFS client
 apt-get -y install nfs-common
 
-curl -L http://opscode.com/chef/install.sh | bash
-
 # Installing vagrant keys
 mkdir /home/vagrant/.ssh
 chmod 700 /home/vagrant/.ssh
@@ -42,7 +40,7 @@ umount /mnt
 rm VBoxGuestAdditions_$VBOX_VERSION.iso
 
 # Remove items used for building, since they aren't needed anymore
-apt-get -y remove linux-headers-$(uname -r) build-essential
+apt-get -y remove linux-headers-$(uname -r) build-essential zlib1g-dev libssl-dev libreadline5-dev
 apt-get -y autoremove
 
 # Zero out the free space to save space in the final image:
