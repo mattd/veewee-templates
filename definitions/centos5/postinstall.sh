@@ -11,27 +11,9 @@ fail()
 #kernel source is needed for vbox additions
 yum -y install gcc bzip2 make kernel-devel-`uname -r`
 
-yum -y install gcc-c++ zlib-devel openssl-devel readline-devel sqlite3-devel
+yum -y install gcc-c++ zlib-devel openssl-devel readline-devel sqlite2-devel curl wget
 yum -y erase wireless-tools gtk2 libX11 hicolor-icon-theme avahi freetype bitstream-vera-fonts
 yum -y clean all
-
-#Installing ruby
-cd /tmp
-wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p290.tar.gz || fail "Could not download Ruby source"
-tar xzvf ruby-1.9.2-p290.tar.gz 
-cd ruby-1.9.2-p290
-./configure
-make && make install
-cd /tmp
-rm -rf /tmp/ruby-1.9.2-p290
-rm /tmp/ruby-1.9.2-p290.tar.gz
-
-ln -s /usr/local/bin/ruby /usr/bin/ruby # Create a sym link for the same path
-ln -s /usr/local/bin/gem /usr/bin/gem # Create a sym link for the same path
-
-#Installing chef & Puppet
-
-/usr/local/bin/gem install chef --no-ri --no-rdoc || fail "Could not install chef"
 
 #Installing vagrant keys
 mkdir /home/vagrant/.ssh
@@ -50,6 +32,9 @@ umount /mnt
 
 rm VBoxGuestAdditions_$VBOX_VERSION.iso
 
+yum -y erase gcc gcc-c++ make kernel-devel bzip2
+
+curl -L http://opscode.com/chef/install.sh | bash
 
 sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
 
